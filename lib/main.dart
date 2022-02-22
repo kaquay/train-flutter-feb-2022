@@ -18,55 +18,8 @@ class Home extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
           color: const Color.fromARGB(255, 255, 255, 255),
           child: Column(children: [
-            Container(
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255)),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 0.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.grid_view_rounded,
-                        size: 40,
-                      ),
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      child: const CircleAvatar(
-                        backgroundColor: Color.fromARGB(0, 255, 255, 255),
-                        backgroundImage: AssetImage('assets/images/icon.png'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(32.0, 16.0, 0.0, 4.0),
-                    child: Text(
-                      'Hi Sajon',
-                      style: TextStyle(
-                          fontSize: 35.0, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Image(image: AssetImage('assets/images/hello.png'))
-                ],
-              ),
-              Container(
-                  padding: const EdgeInsets.only(left: 32.0),
-                  child: const Text('Wellcome to Orix Home.',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                      )))
-            ]),
+            _buildAppbar(context),
+            _buildWelcomePlace(context),
             Padding(
               padding: const EdgeInsets.fromLTRB(32.0, 20.0, 32.0, 0.0),
               child: Row(
@@ -127,16 +80,6 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24.0),
                         )),
-                    // style: ButtonStyle(
-                    //     backgroundColor: MaterialStateProperty.all(
-                    //         const Color.fromARGB(255, 0, 0, 0)),
-                    //     shadowColor: MaterialStateProperty.all<Color>(
-                    //         const Color.fromARGB(255, 255, 255, 255)),
-                    //     shape:
-                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //             RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(24.0),
-                    //     ))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -163,16 +106,6 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24.0),
                         )),
-                    // style: ButtonStyle(
-                    //     backgroundColor: MaterialStateProperty.all(
-                    //         const Color.fromARGB(255, 254, 246, 229)),
-                    //     shadowColor: MaterialStateProperty.all<Color>(
-                    //         const Color.fromARGB(255, 255, 255, 255)),
-                    //     shape:
-                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //             RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(24.0),
-                    //     ))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -202,16 +135,6 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24.0),
                         )),
-                    // style: ButtonStyle(
-                    //     backgroundColor: MaterialStateProperty.all(
-                    //         const Color.fromARGB(255, 233, 231, 247)),
-                    //     shadowColor: MaterialStateProperty.all<Color>(
-                    //         const Color.fromARGB(255, 255, 255, 255)),
-                    //     shape:
-                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //             RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(24.0),
-                    //     ))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -241,16 +164,6 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24.0),
                         )),
-                    // style: ButtonStyle(
-                    //     backgroundColor: MaterialStateProperty.all(
-                    //         const Color.fromARGB(255, 207, 235, 244)),
-                    //     shadowColor: MaterialStateProperty.all<Color>(
-                    //         const Color.fromARGB(255, 255, 255, 255)),
-                    //     shape:
-                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //             RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(24.0),
-                    //     ))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -280,15 +193,6 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24.0),
                         )),
-                    // style: ButtonStyle(
-                    //     backgroundColor: MaterialStateProperty.all(
-                    //         const Color.fromARGB(255, 250, 235, 232)),
-                    //     shadowColor: null,
-                    //     shape:
-                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //             RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(24.0),
-                    //     ))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -339,34 +243,6 @@ class Home extends StatelessWidget {
                         ),
                       ],
                     ),
-                    // style: ButtonStyle(
-                    //     backgroundColor: MaterialStateProperty.all(
-                    //         const Color.fromARGB(255, 239, 247, 228)),
-                    //     shadowColor: MaterialStateProperty.all<Color>(
-                    //         Color.fromARGB(255, 148, 23, 23)),
-                    //     shape:
-                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
-                    //             RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(24.0),
-                    //     ))),
-                    // child: Column(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: const [
-                    //     CircleAvatar(
-                    //       backgroundImage:
-                    //           AssetImage('assets/images/dinning.webp'),
-                    //     ),
-                    //     Text(
-                    //       'Dinning Room',
-                    //       style: TextStyle(
-                    //           fontWeight: FontWeight.w900, color: Colors.black),
-                    //     ),
-                    //     Text(
-                    //       '4 devices',
-                    //       style: TextStyle(color: Colors.black),
-                    //     ),
-                    //   ],
-                    // ),
                   ),
                 ),
               ],
@@ -375,5 +251,59 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildAppbar(BuildContext context) {
+    return Container(
+      decoration:
+          const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 0.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.grid_view_rounded,
+                size: 40,
+              ),
+            ),
+            const Spacer(),
+            TextButton(
+              onPressed: () {},
+              child: const CircleAvatar(
+                backgroundColor: Color.fromARGB(0, 255, 255, 255),
+                backgroundImage: AssetImage('assets/images/icon.png'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWelcomePlace(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: const [
+          Padding(
+            padding: EdgeInsets.fromLTRB(32.0, 16.0, 0.0, 4.0),
+            child: Text(
+              'Hi Sajon',
+              style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w600),
+            ),
+          ),
+          Image(image: AssetImage('assets/images/hello.png'))
+        ],
+      ),
+      Container(
+          padding: const EdgeInsets.only(left: 32.0),
+          child: const Text('Wellcome to Orix Home.',
+              style: TextStyle(
+                fontSize: 20.0,
+              )))
+    ]);
   }
 }
