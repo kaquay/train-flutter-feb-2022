@@ -48,7 +48,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(_rooms[5].color[3]);
     return SafeArea(
       child: Scaffold(
         body: Container(
