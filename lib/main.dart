@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
+import 'package:hello_flutter/models/room.dart';
+import 'package:hello_flutter/widgets/add_room.dart';
+import 'package:hello_flutter/widgets/app_bar.dart';
+import 'package:hello_flutter/widgets/griview_rooms.dart';
 
 void main() {
   runApp(const MaterialApp(
     home: Home(),
   ));
-}
-
-class Room {
-  String name;
-  // ignore_for_file: prefer_typing_uninitialized_variables
-  var color;
-  String avt;
-  String device;
-  var textColor;
-  Room(this.name, this.color, this.avt, this.device, this.textColor);
 }
 
 // var arr = [255, 0, 0, 0];
@@ -54,145 +48,145 @@ class Home extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
           color: const Color.fromARGB(255, 255, 255, 255),
           child: Column(children: [
-            _buildAppbar(context),
+            buildAppbar(context),
             _buildWelcomePlace(context),
-            _buildAddroom(context),
-            _buildGridviewRooms(context),
+            buildAddroom(context),
+            buildGridviewRooms(context, _rooms),
           ]),
         ),
       ),
     );
   }
 
-  Widget _buildAddroom(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(32.0, 20.0, 32.0, 0.0),
-      child: Row(
-        children: [
-          const Text(
-            'Your ',
-            style: TextStyle(fontSize: 30),
-          ),
-          const Text(
-            'Rooms',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-          ),
-          const Spacer(),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 12.0),
-                primary: const Color.fromARGB(255, 226, 246, 245),
-                elevation: 0.0,
-                shadowColor: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                )),
-            child: Row(
-              children: const [
-                Text(
-                  'Add  ',
-                  style: TextStyle(color: Color.fromARGB(255, 77, 192, 192)),
-                ),
-                Icon(
-                  Icons.add_circle,
-                  color: Color.fromARGB(255, 77, 192, 192),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // Widget _buildAddroom(BuildContext context) {
+  //   return Padding(
+  //     padding: const EdgeInsets.fromLTRB(32.0, 20.0, 32.0, 0.0),
+  //     child: Row(
+  //       children: [
+  //         const Text(
+  //           'Your ',
+  //           style: TextStyle(fontSize: 30),
+  //         ),
+  //         const Text(
+  //           'Rooms',
+  //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+  //         ),
+  //         const Spacer(),
+  //         ElevatedButton(
+  //           onPressed: () {},
+  //           style: ElevatedButton.styleFrom(
+  //               padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 12.0),
+  //               primary: const Color.fromARGB(255, 226, 246, 245),
+  //               elevation: 0.0,
+  //               shadowColor: Colors.transparent,
+  //               shape: RoundedRectangleBorder(
+  //                 borderRadius: BorderRadius.circular(12.0),
+  //               )),
+  //           child: Row(
+  //             children: const [
+  //               Text(
+  //                 'Add  ',
+  //                 style: TextStyle(color: Color.fromARGB(255, 77, 192, 192)),
+  //               ),
+  //               Icon(
+  //                 Icons.add_circle,
+  //                 color: Color.fromARGB(255, 77, 192, 192),
+  //               )
+  //             ],
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
-  Widget _buildGridviewRooms(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.fromLTRB(36.0, 24.0, 36.0, 24.0),
-      shrinkWrap: true,
-      itemCount: _rooms.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, crossAxisSpacing: 12, mainAxisSpacing: 12),
-      itemBuilder: (context, int index) {
-        return SizedBox(
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(
-                    _rooms[index].color[0],
-                    _rooms[index].color[1],
-                    _rooms[index].color[2],
-                    _rooms[index].color[3]),
-                elevation: 0.0,
-                shadowColor: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24.0),
-                )),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundColor: const Color.fromARGB(0, 255, 255, 255),
-                  backgroundImage: AssetImage(_rooms[index].avt),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(top: 3.0),
-                  child: Text(_rooms[index].name,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          color: Color.fromARGB(
-                              _rooms[index].textColor[0],
-                              _rooms[index].textColor[1],
-                              _rooms[index].textColor[2],
-                              _rooms[index].textColor[3]))),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(top: 3.0),
-                  child: Text(_rooms[index].device,
-                      style: TextStyle(
-                          color: Color.fromARGB(
-                              _rooms[index].textColor[0],
-                              _rooms[index].textColor[1],
-                              _rooms[index].textColor[2],
-                              _rooms[index].textColor[3]))),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
+  // Widget _buildGridviewRooms(BuildContext context) {
+  //   return GridView.builder(
+  //     padding: const EdgeInsets.fromLTRB(36.0, 24.0, 36.0, 24.0),
+  //     shrinkWrap: true,
+  //     itemCount: _rooms.length,
+  //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+  //         crossAxisCount: 2, crossAxisSpacing: 12, mainAxisSpacing: 12),
+  //     itemBuilder: (context, int index) {
+  //       return SizedBox(
+  //         child: ElevatedButton(
+  //           onPressed: () {},
+  //           style: ElevatedButton.styleFrom(
+  //               primary: Color.fromARGB(
+  //                   _rooms[index].color[0],
+  //                   _rooms[index].color[1],
+  //                   _rooms[index].color[2],
+  //                   _rooms[index].color[3]),
+  //               elevation: 0.0,
+  //               shadowColor: Colors.transparent,
+  //               shape: RoundedRectangleBorder(
+  //                 borderRadius: BorderRadius.circular(24.0),
+  //               )),
+  //           child: Column(
+  //             mainAxisAlignment: MainAxisAlignment.center,
+  //             children: [
+  //               CircleAvatar(
+  //                 backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+  //                 backgroundImage: AssetImage(_rooms[index].avt),
+  //               ),
+  //               Container(
+  //                 padding: const EdgeInsets.only(top: 3.0),
+  //                 child: Text(_rooms[index].name,
+  //                     style: TextStyle(
+  //                         fontWeight: FontWeight.w900,
+  //                         color: Color.fromARGB(
+  //                             _rooms[index].textColor[0],
+  //                             _rooms[index].textColor[1],
+  //                             _rooms[index].textColor[2],
+  //                             _rooms[index].textColor[3]))),
+  //               ),
+  //               Container(
+  //                 padding: const EdgeInsets.only(top: 3.0),
+  //                 child: Text(_rooms[index].device,
+  //                     style: TextStyle(
+  //                         color: Color.fromARGB(
+  //                             _rooms[index].textColor[0],
+  //                             _rooms[index].textColor[1],
+  //                             _rooms[index].textColor[2],
+  //                             _rooms[index].textColor[3]))),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
-  Widget _buildAppbar(BuildContext context) {
-    return Container(
-      decoration:
-          const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 0.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.grid_view_rounded,
-                size: 40,
-              ),
-            ),
-            const Spacer(),
-            TextButton(
-              onPressed: () {},
-              child: const CircleAvatar(
-                backgroundColor: Color.fromARGB(0, 255, 255, 255),
-                backgroundImage: AssetImage('assets/images/icon.png'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget _buildAppbar(BuildContext context) {
+  //   return Container(
+  //     decoration:
+  //         const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+  //     child: Padding(
+  //       padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 0.0),
+  //       child: Row(
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: <Widget>[
+  //           IconButton(
+  //             onPressed: () {},
+  //             icon: const Icon(
+  //               Icons.grid_view_rounded,
+  //               size: 40,
+  //             ),
+  //           ),
+  //           const Spacer(),
+  //           TextButton(
+  //             onPressed: () {},
+  //             child: const CircleAvatar(
+  //               backgroundColor: Color.fromARGB(0, 255, 255, 255),
+  //               backgroundImage: AssetImage('assets/images/icon.png'),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildWelcomePlace(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
