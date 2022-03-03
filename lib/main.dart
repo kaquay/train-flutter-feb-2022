@@ -7,11 +7,28 @@ import 'package:hello_flutter/screens/home_screen.dart';
 import 'package:hello_flutter/screens/living_room.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: LivingRoom(),
   ));
 }
+// void main() => runApp(const MyApp());
 
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   static const String _title = 'Flutter Code Sample';
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: _title,
+//       home: Scaffold(
+//         appBar: AppBar(title: const Text(_title)),
+//         body: const LivingRoom(),
+//       ),
+//     );
+//   }
+// }
 // var arr = [255, 0, 0, 0];
 
 class RandomColorModel {

@@ -68,6 +68,13 @@ flutter:
     - assets/images/kitchen.jpg
     - assets/images/livingroom.webp
     - assets/images/hello.png
+    - assets/images/clock.png
+    - assets/images/fire.png
+    - assets/images/livingroom/Coller.jpg
+    - assets/images/livingroom/computer.jpg
+    - assets/images/livingroom/light.jpg
+    - assets/images/livingroom/smart_tv.jpg
+    - assets/images/livingroom/fan.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
