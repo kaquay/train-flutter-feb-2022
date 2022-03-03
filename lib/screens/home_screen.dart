@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/models/room.dart';
+import 'package:hello_flutter/screens/living_room.dart';
 import 'package:hello_flutter/widgets/room_item.dart';
 
 List<Room> _rooms = <Room>[
@@ -103,7 +104,12 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LivingRoom()),
+                );
+              },
               icon: const Icon(
                 Icons.grid_view_rounded,
                 size: 40,

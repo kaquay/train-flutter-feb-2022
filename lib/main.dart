@@ -8,7 +8,7 @@ import 'package:hello_flutter/screens/living_room.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: LivingRoom(),
+    home: Home(),
   ));
 }
 // void main() => runApp(const MyApp());
