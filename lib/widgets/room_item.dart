@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/models/room.dart';
+import 'package:hello_flutter/screens/living_room.dart';
 
 class RoomItem extends StatelessWidget {
   final Room room;
@@ -9,7 +10,12 @@ class RoomItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const LivingRoom()),
+          );
+        },
         style: ElevatedButton.styleFrom(
             primary: Color.fromARGB(
                 room.color[0], room.color[1], room.color[2], room.color[3]),

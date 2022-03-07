@@ -104,12 +104,7 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LivingRoom()),
-                );
-              },
+              onPressed: () {},
               icon: const Icon(
                 Icons.grid_view_rounded,
                 size: 40,
