@@ -5,10 +5,11 @@ import 'package:hello_flutter/models/room.dart';
 import 'package:hello_flutter/widgets/room_item.dart';
 import 'package:hello_flutter/screens/home_screen.dart';
 import 'package:hello_flutter/screens/living_room.dart';
+import 'package:hello_flutter/screens/login_google.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: Home(),
+    home: LoginGoogle(),
   ));
 }
 // void main() => runApp(const MyApp());
