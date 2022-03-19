@@ -15,7 +15,11 @@ def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
-
+rootProject.ext {
+  set('FlutterFire', [
+    FirebaseSDKVersion: '29.0.4'
+  ])
+}
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
@@ -68,4 +72,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.2.0')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.firebase:firebase-analytics'
+    compile "com.google.firebase:firebase-auth:9.0.2"
 }

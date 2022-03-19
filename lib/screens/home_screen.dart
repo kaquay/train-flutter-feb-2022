@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hello_flutter/models/room.dart';
 import 'package:hello_flutter/screens/living_room.dart';
 import 'package:hello_flutter/widgets/room_item.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:hello_flutter/screens/login_google.dart';
 
 List<Room> _rooms = <Room>[
   Room('Livingroom', [255, 0, 0, 0], 'assets/images/livingroom.webp',
@@ -21,21 +23,15 @@ List<Room> _rooms = <Room>[
 ];
 
 class Home extends StatefulWidget {
-  bool isLoggedIn = false;
-  GoogleSignInAccount userObj;
-  GoogleSignIn googleSignIn;
-  Home(
-      {Key? key,
-      required this.isLoggedIn,
-      required this.userObj,
-      required this.googleSignIn})
-      : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _Home();
 }
 
 class _Home extends State<Home> {
+  // lay thong tin user
+  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -126,16 +122,10 @@ class _Home extends State<Home> {
               ),
             ),
             const Spacer(),
-            TextButton(
-              onPressed: () {
-                widget.googleSignIn.disconnect();
-                const LoginGoogle();
-              },
-              child: const CircleAvatar(
-                backgroundColor: Color.fromARGB(0, 255, 255, 255),
-                backgroundImage: AssetImage('assets/images/icon.png'),
-              ),
-            ),
+            IconButton(
+                // thuc hien dang xuat tai khoan
+                onPressed: () => FirebaseAuth.instance.signOut(),
+                icon: const FaIcon(FontAwesomeIcons.signOutAlt)),
           ],
         ),
       ),
@@ -150,7 +140,7 @@ class _Home extends State<Home> {
           Padding(
             padding: EdgeInsets.fromLTRB(32.0, 16.0, 0.0, 4.0),
             child: Text(
-              widget.userObj.email,
+              '${user.displayName}',
               style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w600),
             ),
           ),
