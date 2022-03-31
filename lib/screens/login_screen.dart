@@ -56,7 +56,7 @@ class _LoginWidget extends State<LoginWidget> {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
-
+    
     // sau khi dang nhap tra ve thong tin dang nhap
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
