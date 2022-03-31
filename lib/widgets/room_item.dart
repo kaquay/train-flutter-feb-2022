@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/models/room.dart';
+import 'package:hello_flutter/screens/detail_room.dart';
 import 'package:hello_flutter/screens/living_room.dart';
 
 class RoomItem extends StatelessWidget {
@@ -13,12 +14,14 @@ class RoomItem extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const LivingRoom()),
+            MaterialPageRoute(
+                builder: (context) => DetailRoom(
+                      room: room,
+                    )),
           );
         },
         style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(
-                room.color[0], room.color[1], room.color[2], room.color[3]),
+            primary: Color(room.color),
             elevation: 0.0,
             shadowColor: Colors.transparent,
             shape: RoundedRectangleBorder(
@@ -36,21 +39,12 @@ class RoomItem extends StatelessWidget {
               child: Text(room.name,
                   style: TextStyle(
                       fontWeight: FontWeight.w900,
-                      color: Color.fromARGB(
-                          room.textColor[0],
-                          room.textColor[1],
-                          room.textColor[2],
-                          room.textColor[3]))),
+                      color: Color(room.textColor))),
             ),
             Container(
               padding: const EdgeInsets.only(top: 3.0),
               child: Text(room.device,
-                  style: TextStyle(
-                      color: Color.fromARGB(
-                          room.textColor[0],
-                          room.textColor[1],
-                          room.textColor[2],
-                          room.textColor[3]))),
+                  style: TextStyle(color: Color(room.textColor))),
             ),
           ],
         ),
