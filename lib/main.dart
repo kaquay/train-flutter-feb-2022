@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
 import 'package:hello_flutter/models/room.dart';
+import 'package:hello_flutter/route/homepage.dart';
+import 'package:hello_flutter/screens/addroom.dart';
 import 'package:hello_flutter/widgets/room_item.dart';
 import 'package:hello_flutter/screens/home_screen.dart';
 import 'package:hello_flutter/screens/living_room.dart';
 import 'package:hello_flutter/screens/login_screen.dart';
 import 'package:hello_flutter/firebase_options.dart';
+import 'package:hello_flutter/screens/prolife_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +35,7 @@ class HomePage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             // neu co nguoi dung thi chuyen sang man hinh home
-            return const Home();
+            return GoingHome();
           } else {
             return const LoginWidget();
           }
